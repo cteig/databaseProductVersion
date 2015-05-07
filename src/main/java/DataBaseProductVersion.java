@@ -19,16 +19,18 @@ public class DataBaseProductVersion {
         DatabaseMetaData dbMetaData = null;
         try {
             dbMetaData = connection.getMetaData();
-        System.out.println("database URL: " + dbMetaData.getURL());
-        System.out.println("database username: " + dbMetaData.getUserName());
-        System.out.println("database product name: " +  dbMetaData.getDatabaseProductName());
-        System.out.println("database product version: " +  dbMetaData.getDatabaseProductVersion());
-        System.out.println("JDBC driver name: " + dbMetaData.getDriverName());
-        System.out.println("JDBC driver version: " + dbMetaData.getDriverVersion());
-        System.out.println("JDBC driver major version: " + new Integer(dbMetaData.getDriverMajorVersion()));
-        System.out.println("JDBC driver minor version: " + new Integer(dbMetaData.getDriverMinorVersion()));
+            System.out.println("database URL: " + dbMetaData.getURL());
+            System.out.println("database username: " + dbMetaData.getUserName());
+            System.out.println("database product name: " + dbMetaData.getDatabaseProductName());
+            System.out.println("database product version: " + dbMetaData.getDatabaseProductVersion());
+            System.out.println("database major version: " + dbMetaData.getDatabaseMajorVersion());
+            System.out.println("database minor version: " + dbMetaData.getDatabaseMinorVersion());
+            System.out.println("JDBC driver name: " + dbMetaData.getDriverName());
+            System.out.println("JDBC driver version: " + dbMetaData.getDriverVersion());
+            System.out.println("JDBC driver major version: " + new Integer(dbMetaData.getDriverMajorVersion()));
+            System.out.println("JDBC driver minor version: " + new Integer(dbMetaData.getDriverMinorVersion()));
 
-        connection.close();
+            connection.close();
         } catch (SQLException e) {
             e.printStackTrace();
         }
@@ -37,13 +39,12 @@ public class DataBaseProductVersion {
 
     public BasicDataSource setupBasicDataSource() {
         BasicDataSource ds = new BasicDataSource();
-        ds.setUrl("jdbc:db2://xxxx");
+        ds.setUrl("jdbc:db2://xxxxx");
         ds.setUsername("USERNAME");
         ds.setPassword("PASSWORD");
         ds.setDriverClassName("com.ibm.db2.jcc.DB2Driver");
         return ds;
     }
-
 
     public static Connection openConnection(DataSource dataSource) throws RuntimeException {
         try {

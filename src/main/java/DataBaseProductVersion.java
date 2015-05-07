@@ -26,11 +26,8 @@ public class DataBaseProductVersion {
         System.out.println("JDBC driver name: " + dbMetaData.getDriverName());
         System.out.println("JDBC driver version: " + dbMetaData.getDriverVersion());
         System.out.println("JDBC driver major version: " + new Integer(dbMetaData.getDriverMajorVersion()));
-
         System.out.println("JDBC driver minor version: " + new Integer(dbMetaData.getDriverMinorVersion()));
-        System.out.println("Max number of connections: " + new Integer(dbMetaData.getMaxConnections()));
-        System.out.println("MaxTableNameLentgh: " + new Integer(dbMetaData.getMaxTableNameLength()));
-        System.out.println("MaxColumnsInTable: " + new Integer(dbMetaData.getMaxColumnsInTable()));
+
         connection.close();
         } catch (SQLException e) {
             e.printStackTrace();
@@ -40,11 +37,10 @@ public class DataBaseProductVersion {
 
     public BasicDataSource setupBasicDataSource() {
         BasicDataSource ds = new BasicDataSource();
-        ds.setUrl("url");
-        ds.setUsername("username");
-        ds.setPassword("password");
+        ds.setUrl("jdbc:db2://xxxx");
+        ds.setUsername("USERNAME");
+        ds.setPassword("PASSWORD");
         ds.setDriverClassName("com.ibm.db2.jcc.DB2Driver");
-        ds.setValidationQuery("select 1 from sysibm.sysdummy1");
         return ds;
     }
 
